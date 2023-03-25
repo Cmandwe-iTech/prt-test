@@ -58,13 +58,6 @@ const NotesContextProvider = (props) => {
       }
     });
   };
-  const updatenotes = (id) => {
-    axios.put(`https://notesbackend-wg6k.onrender.com/${id}`).then((res) => {
-        if(res.status === 200){
-            fetchdata()
-        }
-    });
-  };
   const deletnotes = (id) => {
     axios.post(`https://notesbackend-wg6k.onrender.com/${id}`).then((res) => {
         if(res.status === 200){
@@ -90,7 +83,6 @@ const NotesContextProvider = (props) => {
         setNotes,
         createnotes,
         logout,
-        updatenotes,
         deletnotes,
       }}
     >

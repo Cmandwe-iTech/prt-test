@@ -3,19 +3,21 @@ import { Link, useNavigate } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { NoteContext } from "../conextapi/notes";
 const Home = () => {
-  const { details, logout, updatenotes, deletnotes } = useContext(NoteContext);
+  const { details, logout, deletnotes } = useContext(NoteContext);
   const [ss, setss] = useState(true);
-  const [text, settext] = useState("")
-  const [fd, setfd] = useState([])
-  const navigate = useNavigate()
-  useEffect(()=>{
-    if(text === ""){
-        setfd(details)
-    }else{
-        let filterdata = details.filter((item, i)=> item.title.toLowerCase().includes(text))
-        setfd(filterdata)
+  const [text, settext] = useState("");
+  const [fd, setfd] = useState([]);
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (text === "") {
+      setfd(details);
+    } else {
+      let filterdata = details.filter((item, i) =>
+        item.title.toLowerCase().includes(text)
+      );
+      setfd(filterdata);
     }
-  },[details, text, setfd])
+  }, [details, text, setfd]);
   return (
     <div className="container">
       <div className="header">
@@ -32,7 +34,12 @@ const Home = () => {
         </div>
       </div>
       <div className="section">
-        <input type="text" id="searchbar" placeholder="search here..." onChange={(e)=>settext(e.target.value)}/>
+        <input
+          type="text"
+          id="searchbar"
+          placeholder="search here..."
+          onChange={(e) => settext(e.target.value)}
+        />
         <div className="display">
           {fd.map((item, i) => {
             return (
@@ -46,8 +53,15 @@ const Home = () => {
                   <div className="div3">
                     <p>{item.date}</p>
                     <p>{item.description}</p>
-                    <button className="btns" onClick={()=>{deletnotes(`${item._id}`)}}>delete</button>
-                    <button className="btns" onClick={()=>{updatenotes(`${item._id}`)}}>update</button>
+                    <button
+                      className="btns"
+                      onClick={() => {
+                        deletnotes(`${item._id}`);
+                      }}
+                    >
+                      delete
+                    </button>
+                    <button className="btns">update</button>
                   </div>
                 )}
               </div>
