@@ -50,7 +50,7 @@ const Home = () => {
                     <p>{item.title}</p>
                   </div>
                 ) : (
-                  <div className="div3">
+                  <div className="div3" onClick={() => setss(true)}>
                     <p>{item.date}</p>
                     <p>{item.description}</p>
                     <button
