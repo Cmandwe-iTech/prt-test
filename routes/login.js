@@ -1,8 +1,10 @@
 const express = require("express");
 const reg_router = express.Router();
+const bodyparser = require("body-parser");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const UserModel = require("../models/user");
+reg_router.use(bodyparser.json());
 
 reg_router.post("/register", async (req, res) => {
   try {
