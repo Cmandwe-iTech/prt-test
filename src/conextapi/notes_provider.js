@@ -62,6 +62,7 @@ const NotesContextProvider = (props) => {
     axios.post(`https://notesbackend-wg6k.onrender.com/${id}`).then((res) => {
         if(res.status === 200){
             fetchdata()
+            navigate("/home")
         }
     });
   };
