@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
-
+import Login from "./componenets/landing";
+import SignUp from "./componenets/register";
+import Home from "./componenets/home";
+import AddNote from "./componenets/addnote";
+import { Route, Routes } from "react-router-dom";
+import NotesContextProvider from "./conextapi/notes_provider";
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <NotesContextProvider>
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/addnotes" element={<AddNote />} />
+        </Routes>
+      </NotesContextProvider>
     </div>
   );
 }

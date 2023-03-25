@@ -1,0 +1,59 @@
+.container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+}
+.header {
+  height: 10%;
+  background: rgb(37, 36, 36);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  color: white;
+  justify-content: space-around;
+  box-sizing: border-box;
+  padding: 20px;
+}
+.header div {
+  color: white;
+  text-decoration: none;
+}
+.section {
+  height: 90%;
+  background: rgb(229, 207, 164);
+  text-align: center;
+}
+#searchbar {
+  margin-left: 10%;
+  margin-top: 10px;
+  height: 20px;
+  width: 80%;
+  border-radius: 5px;
+}
+#btn {
+  height: 20px;
+  width: 100px;
+}
+.display {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.div2 {
+  height: 150px;
+  width: auto;
+  background: skyblue;
+  box-sizing: border-box;
+  padding: 10px;
+  margin-top: 20px;
+}
+.div3 {
+  height: auto;
+  width: auto;
+  background: skyblue;
+  box-sizing: border-box;
+  padding: 10px;
+  margin-top: 20px;
+}
