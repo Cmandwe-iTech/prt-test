@@ -20,7 +20,7 @@ app.use("/notes", (req, res, next) => {
     const token = req.headers.authorization;
     if (token) {
       const decoded = jwt.verify(token, "secret");
-      req.user = decoded.padStart;
+      req.user = decoded.data;
       next();
     } else {
       res.status(401).json({
