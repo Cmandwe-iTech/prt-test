@@ -15,14 +15,14 @@ const NotesContextProvider = (props) => {
         authorization: token,
       },
     };
-    axios.get("http://localhost:5000/notes", config).then((res) => {
+    axios.get("https://notesbackend-wg6k.onrender.com/notes", config).then((res) => {
       setdetails(res.data.note);
       navigate("/home");
     });
   };
 
   const login = () => {
-    axios.post("http://localhost:5000/login", user).then((res) => {
+    axios.post("https://notesbackend-wg6k.onrender.com/login", user).then((res) => {
       if (res.status === 200) {
         alert("login successfully");
         window.localStorage.setItem("token", res.data.token);
@@ -34,7 +34,7 @@ const NotesContextProvider = (props) => {
     });
   };
   const signup = () => {
-    axios.post("http://localhost:5000/register", data).then((res) => {
+    axios.post("https://notesbackend-wg6k.onrender.com/register", data).then((res) => {
       if (res.status === 200) {
         alert("register successfully");
         navigate("/");
@@ -51,7 +51,7 @@ const NotesContextProvider = (props) => {
         authorization: token,
       },
     };
-    axios.post("http://localhost:5000/notes", notes, config).then((res) => {
+    axios.post("https://notesbackend-wg6k.onrender.com/notes", notes, config).then((res) => {
       if (res.status === 200) {
         alert("notes added");
         fetchdata();
@@ -59,14 +59,14 @@ const NotesContextProvider = (props) => {
     });
   };
   const updatenotes = (id) => {
-    axios.put(`http://localhost:5000/notes/${id}`).then((res) => {
+    axios.put(`https://notesbackend-wg6k.onrender.com/${id}`).then((res) => {
         if(res.status === 200){
             fetchdata()
         }
     });
   };
   const deletnotes = (id) => {
-    axios.post(`http://localhost:5000/notes/${id}`).then((res) => {
+    axios.post(`https://notesbackend-wg6k.onrender.com/${id}`).then((res) => {
         if(res.status === 200){
             fetchdata()
         }
