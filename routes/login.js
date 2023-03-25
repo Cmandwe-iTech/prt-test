@@ -44,7 +44,6 @@ reg_router.post("/register", async (req, res) => {
 reg_router.post("/login", async (req, res) => {
   try {
     const user = await UserModel.findOne({ email: req.body.email });
-    if (user) {
       if (user) {
         let result = bcrypt.compare(req.body.password, user.password);
         if (result) {
@@ -65,7 +64,10 @@ reg_router.post("/login", async (req, res) => {
             message: "password does not match",
           });
         }
-      }
+    }else{
+      res.status(404).json({
+        status:"user does not exist"
+      })
     }
   } catch (e) {
     res.json({
